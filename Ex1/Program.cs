@@ -13,7 +13,7 @@ namespace Excercise_1
             foreach (var m in missions)
             {
                 Console.WriteLine($"{m.Name}({val}) = {m.Calculate(val)}\n");
-                Console.WriteLine("hezi");
+                Console.WriteLine("hezi avraham");
             }
         }
 
