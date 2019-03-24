@@ -7,35 +7,36 @@ using System.Threading.Tasks;
 namespace Excercise_1
 {
     // This class represents Functions Container - Dictionary of strings and functions
+    // 'Func' is the delegate used in all classes
+    public delegate double Delegate1(double d);
     public class FunctionsContainer
     {
-        private Dictionary<string, Func> dict;
+        private Dictionary<string, Delegate1> dicmap;
 
         // Constructor
         public FunctionsContainer()
         {
-            this.dict = new Dictionary<string, Func>();
+            dicmap = new Dictionary<string, Delegate1>();
         }
 
         // This function returns a list of the dictionary keys
         public List<string> getAllMissions()
         {
-            List<string> funcList = new List<string>(this.dict.Keys);
-            return funcList;
+          return new List<string>(this.dicmap.Keys); ;
         }
 
         // an Indexer for an instance of this class
-        public Func this[string str]
+        public Delegate1 this[string key]
         {
             get
             {
-                if (!dict.ContainsKey(str))
-                    dict[str] = value => value; // returns the value -> default of "stam" function
-                return dict[str];
+                if (!dicmap.ContainsKey(key))
+                    dicmap[key] = value => value; // returns the value -> default of "stam" function
+                return dicmap[key];
             }
             set
             {
-                dict[str] = value;
+                dicmap[key] = value;
             }
         }
     }
