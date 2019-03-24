@@ -7,33 +7,29 @@ using System.Threading.Tasks;
 namespace Excercise_1
 {
 
-    // This class represents Single Mission - only one function
     public class SingleMission : IMission
     {
+        //SingleMission gets function and the name of the function and calculate it.
         Delegate1 func;
         string funcName;
         double result;
 
-        // Publisher
         public event EventHandler<double> OnCalculate;
 
-        // Constructor
+        //the constructor
         public SingleMission(Delegate1 f, string str)
         {
             this.func = f;
             this.funcName = str;
         }
-
-        // This method runs the inner function for calculation and calls the subscribers 
+        //calculation of double to the function
         public double Calculate(double val)
         {
             this.result = this.func(val);
-            // if not null then invoke the function inside with the parameter 'result'
-            OnCalculate?.Invoke(this, this.result); // raise the event
+            OnCalculate?.Invoke(this, this.result);
             return result;
         }
 
-        // Properties
         string IMission.Type => "Single";
         string IMission.Name => this.funcName;
     }
