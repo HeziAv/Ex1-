@@ -11,8 +11,8 @@ namespace Excercise_1
     {
         //SingleMission gets function and the name of the function and calculate it.
         Delegate1 func;
-        string funcName;
-        double result;
+        string NameFunc;
+        double resultFunc;
 
         public event EventHandler<double> OnCalculate;
 
@@ -20,17 +20,17 @@ namespace Excercise_1
         public SingleMission(Delegate1 f, string str)
         {
             this.func = f;
-            this.funcName = str;
+            this.NameFunc = str;
         }
         //calculation of double to the function
         public double Calculate(double val)
         {
-            this.result = this.func(val);
-            OnCalculate?.Invoke(this, this.result);
-            return result;
+            this.resultFunc = this.func(val);
+            OnCalculate?.Invoke(this, this.resultFunc);
+            return resultFunc;
         }
 
         string IMission.Type => "Single";
-        string IMission.Name => this.funcName;
+        string IMission.Name => this.NameFunc;
     }
 }

@@ -23,8 +23,7 @@ namespace Excercise_1
         //adds a function
         public ComposedMission Add(Delegate1 f)
         {
-            if (f != null)
-                this.funcComp.Add(f);
+            this.funcComp.Add(f);
             return this; 
         }
         //calculate all the functions
@@ -39,7 +38,7 @@ namespace Excercise_1
             return result;
         }
         
-       
+   
         // Properties
         string IMission.Name => this.funcName;
         string IMission.Type => "Composed";
