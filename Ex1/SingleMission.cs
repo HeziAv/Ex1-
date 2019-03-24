@@ -22,6 +22,12 @@ namespace Excercise_1
             this.func = f;
             this.NameFunc = str;
         }
+
+
+        string IMission.Type => "Single";
+        string IMission.Name => this.NameFunc;
+
+
         //calculation of double to the function
         public double Calculate(double val)
         {
@@ -30,7 +36,6 @@ namespace Excercise_1
             return resultFunc;
         }
 
-        string IMission.Type => "Single";
-        string IMission.Name => this.NameFunc;
+        
     }
 }
